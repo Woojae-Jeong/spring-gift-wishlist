@@ -18,27 +18,27 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProducts (){
+    public List<Product> getAllProducts() {
         List<Product> list = productRepository.selectProduct();
         return list;
     }
 
-    public void addProduct (RequestProduct requestProduct){
+    public void addProduct(RequestProduct requestProduct) {
         Product product = new Product(requestProduct.name(), requestProduct.price(), requestProduct.imageUrl());
         productRepository.insertProduct(product);
     }
 
-    public Product selectProduct(long id){
+    public Product selectProduct(long id) {
         Product product = productRepository.selectProductById(id);
         return product;
     }
 
-    public void editProduct(long id, RequestProduct requestProduct){
+    public void editProduct(long id, RequestProduct requestProduct) {
         Product product = new Product(id, requestProduct.name(), requestProduct.price(), requestProduct.imageUrl());
         productRepository.updateProduct(id, product);
     }
 
-    public void deleteProduct(long id){
+    public void deleteProduct(long id) {
         productRepository.deleteProduct(id);
     }
 
