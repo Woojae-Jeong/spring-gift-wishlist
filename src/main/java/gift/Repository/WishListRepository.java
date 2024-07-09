@@ -21,19 +21,6 @@ public class WishListRepository {
         this.jdbctemplate = jdbctemplate;
     }
 
-    public void createWishListTable() {
-        var sql = """
-                create table WishLists(
-                id bigint auto_increment,
-                email varchar(50),
-                productId bigint,
-                count int,
-                primary key(id)
-                )
-                """;
-        jdbctemplate.execute(sql);
-    }
-
     public void insertWishList(String email, RequestWishListDTO requestWishListDTO) {
         var sql = "insert into WishLists (email, productId, count) values (?,?,?)";
         jdbctemplate.update(sql, email, requestWishListDTO.getProductId(), requestWishListDTO.getCount());

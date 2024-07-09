@@ -17,19 +17,6 @@ public class ProductRepository {
         this.jdbctemplate = jdbctemplate;
     }
 
-    public void createProductTable() {
-        var sql = """
-                create table Products(
-                id bigint auto_increment,
-                name varchar(255),
-                price bigint,
-                imageUrl varchar(2000),
-                primary key(id)
-                )
-                """;
-        jdbctemplate.execute(sql);
-    }
-
     public void insertProduct(Product product) {
         var sql = "insert into Products (name, price, imageUrl) values (?,?,?)";
         jdbctemplate.update(sql, product.getName(), product.getPrice(), product.getImageUrl());

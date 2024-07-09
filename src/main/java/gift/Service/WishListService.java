@@ -16,7 +16,6 @@ public class WishListService {
 
     public WishListService(WishListRepository wishListRepository){
         this.wishListRepository = wishListRepository;
-        wishListRepository.createWishListTable();
     }
 
     public void addWishList(User user, RequestWishListDTO requestWishListDTO) {

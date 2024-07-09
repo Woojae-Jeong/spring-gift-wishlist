@@ -16,7 +16,6 @@ public class UserService {
     public UserService (UserRepository userRepository, JwtUtil jwtUtil){
         this.userRepository = userRepository;
         this.jwtUtil = jwtUtil;
-        userRepository.createUserTable();
     }
 
     public void signUpUser(User user){
