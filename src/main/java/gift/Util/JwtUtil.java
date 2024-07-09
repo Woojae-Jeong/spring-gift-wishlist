@@ -40,7 +40,11 @@ public class JwtUtil {
                 .compact();
     }
 
-    private Claims parseClaims(String token) {
+    public String getSubject(String token) {
+        return extractClaims(token).getSubject();
+    }
+
+    private Claims extractClaims(String token) {
         if (token == null) {
             throw new NullTokenException("null토큰 입니다");
         }
@@ -57,12 +61,8 @@ public class JwtUtil {
                     .getBody();
         } catch (ExpiredJwtException e) {
             throw new TokenExpiredException("만료된 토큰 입니다");
-        } catch (SignatureException e){
+        } catch (SignatureException e) {
             throw new InvalidTokenException("올바르지 않은 토큰 입니다");
         }
-    }
-
-    public String getSubject(String token) {
-        return parseClaims(token).getSubject();
     }
 }
