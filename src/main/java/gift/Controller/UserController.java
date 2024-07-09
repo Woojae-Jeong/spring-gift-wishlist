@@ -1,8 +1,8 @@
 package gift.Controller;
 
+import gift.Model.ResponseLoginDTO;
 import gift.Model.User;
 import gift.Service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,11 +23,8 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public String loginUser(@RequestBody User user) {
-        return "{\"token\": \"" + userService.loginUser(user) + "\"}";
+    public ResponseLoginDTO loginUser(@RequestBody User user) {
+        return new ResponseLoginDTO(userService.loginUser(user));
     }
-
-
-
 
 }
