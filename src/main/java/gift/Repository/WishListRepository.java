@@ -16,7 +16,7 @@ import java.util.List;
 public class WishListRepository {
     private final JdbcTemplate jdbctemplate;
 
-    @Autowired
+
     public WishListRepository(JdbcTemplate jdbctemplate) {
         this.jdbctemplate = jdbctemplate;
     }

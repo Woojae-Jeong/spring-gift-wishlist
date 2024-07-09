@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public class UserRepository {
     private final JdbcTemplate jdbctemplate;
 
-    @Autowired
+
     public UserRepository(JdbcTemplate jdbctemplate) {
         this.jdbctemplate = jdbctemplate;
     }

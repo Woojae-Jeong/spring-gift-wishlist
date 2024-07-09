@@ -13,7 +13,7 @@ import java.util.*;
 public class WishListService {
     private final WishListRepository wishListRepository;
 
-    @Autowired
+
     public WishListService(WishListRepository wishListRepository){
         this.wishListRepository = wishListRepository;
         wishListRepository.createWishListTable();

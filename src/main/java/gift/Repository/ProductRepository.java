@@ -12,7 +12,7 @@ import java.util.List;
 public class ProductRepository {
     private final JdbcTemplate jdbctemplate;
 
-    @Autowired
+
     public ProductRepository(JdbcTemplate jdbctemplate) {
         this.jdbctemplate = jdbctemplate;
     }
